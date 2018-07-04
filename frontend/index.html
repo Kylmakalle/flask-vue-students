@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>frontend</title>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+</head>
+<body>
+<div id="app">
+  <section v-if="errored">
+    <p>Unable to retrieve information right now. Try again later.</p>
+  </section>
+  <div v-else class="students">
+    <v-app id="inspire">
+      <v-layout column>
+        <!-- <v-flex xs12 sm6 offset-sm3> -->
+        <v-toolbar color="indigo" dark>
+          <v-toolbar-side-icon></v-toolbar-side-icon>
+          <v-toolbar-title>Students List</v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-btn icon>
+            <v-icon>add_circle_outline</v-icon>
+          </v-btn>
+        </v-toolbar>
+        <v-card>
+          <v-container fluid grid-list-md>
+            <v-layout row wrap>
+              <student
+                v-for="student in students"
+                v-bind="{ data: student }"
+                :key="student.id">
+              </student>
+            </v-layout>
+          </v-container>
+        </v-card>
+        <!-- </v-flex> -->
+      </v-layout>
+    </v-app>
+  </div>
+</div>
+<!-- built files will be auto injected -->
+</body>
+</html>
