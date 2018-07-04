@@ -7,43 +7,16 @@ import Vue from 'vue'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import axios from 'axios'
-// import Student from './components/Student'
+import Student from './components/Student'
+import StudentCreator from './components/StudentCreator'
 
 Vue.use(Vuetify)
 
 Vue.config.productionTip = false
 /* eslint-disable no-new */
 
-Vue.component('student', {
-  props: ['data'],
-  template: '<v-flex v-bind="{ [`xs2`]: true }">' +
-  '<v-card>\n' +
-  '                  <v-card-media\n' +
-  '                    :src="data.photo"\n' +
-  '                    height="250px"\n' +
-  '                  >\n' +
-  '                    <v-container fill-height fluid>\n' +
-  '                      <v-layout fill-height>\n' +
-  '                        <v-flex xs1 align-end>\n' +
-  '                          <span class="headline white--text" v-text="data.first_name"></span>\n' +
-  '                          <br>\n' +
-  '                          <span class="headline white--text" v-text="data.last_name"></span>\n' +
-  '                        </v-flex>\n' +
-  '                      </v-layout>\n' +
-  '                    </v-container>\n' +
-  '                  </v-card-media>\n' +
-  '                  <v-card-actions>\n' +
-  '                    <v-spacer></v-spacer>\n' +
-  '                    <v-btn slot="activator" icon>\n' +
-  '                      <v-icon>edit</v-icon>\n' +
-  '                    </v-btn>\n' +
-  '                    <v-btn icon>\n' +
-  '                      <v-icon>delete</v-icon>\n' +
-  '                    </v-btn>\n' +
-  '                  </v-card-actions>\n' +
-  '                </v-card>' +
-  '</v-flex>'
-})
+Vue.component('student-creator', StudentCreator)
+Vue.component('student', Student)
 
 new Vue({
   el: '#app',

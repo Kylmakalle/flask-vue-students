@@ -17,19 +17,24 @@
       </v-card-media>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn slot="activator" icon>
-          <v-icon>edit</v-icon>
-        </v-btn>
-        <v-btn icon>
-          <v-icon>delete</v-icon>
-        </v-btn>
+        <student-editor v-bind:student_data="data"></student-editor>
+        <student-deleter v-bind:student_data="data"></student-deleter>
       </v-card-actions>
     </v-card>
   </v-flex>
 </template>
 
+
 <script>
+  import StudentEditor from './StudentEditor.vue'
+  import StudentDeleter from './StudentDeleter.vue'
+
   export default {
-    name: 'Student'
+    components: {
+      StudentEditor,
+      StudentDeleter
+    },
+    name: 'Student',
+    props: ['data']
   }
 </script>
