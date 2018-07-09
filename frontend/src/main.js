@@ -6,30 +6,19 @@ import Vue from 'vue'
 // import router from './router'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
-import axios from 'axios'
 import Student from './components/Student'
 import StudentCreator from './components/StudentCreator'
+import StudentsGrid from './components/StudentsGrid'
 
 Vue.use(Vuetify)
 
 Vue.config.productionTip = false
 /* eslint-disable no-new */
 
+Vue.component('students-grid', StudentsGrid)
 Vue.component('student-creator', StudentCreator)
 Vue.component('student', Student)
 
 new Vue({
-  el: '#app',
-  data () {
-    return {
-      students: null,
-      errored: null
-    }
-  },
-  mounted () {
-    axios
-      .get('http://localhost:5000/students/')
-      .then(response => (this.students = response.data))
-      .catch(error => console.log(error))
-  }
+  el: '#app'
 })

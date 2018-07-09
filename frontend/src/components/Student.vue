@@ -17,8 +17,8 @@
       </v-card-media>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <student-editor v-bind:student_data="data"></student-editor>
-        <student-deleter v-bind:student_data="data"></student-deleter>
+        <student-editor v-bind:student_data="data" @update-list="listUpdater"></student-editor>
+        <student-deleter v-bind:student_data="data" @update-list="listUpdater"></student-deleter>
       </v-card-actions>
     </v-card>
   </v-flex>
@@ -35,6 +35,11 @@
       StudentDeleter
     },
     name: 'Student',
-    props: ['data']
+    props: ['data'],
+    methods: {
+      listUpdater () {
+        this.$emit('update-list')
+      }
+    }
   }
 </script>

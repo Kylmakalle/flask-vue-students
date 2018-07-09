@@ -8,34 +8,7 @@
 </head>
 <body>
 <div id="app">
-  <section v-if="errored">
-    <p>Unable to retrieve information right now. Try again later.</p>
-  </section>
-  <div v-else class="students">
-    <v-app id="inspire">
-      <v-layout column>
-        <!-- <v-flex xs12 sm6 offset-sm3> -->
-        <v-toolbar color="indigo" dark>
-          <v-toolbar-side-icon></v-toolbar-side-icon>
-          <v-toolbar-title>Students List</v-toolbar-title>
-          <v-spacer></v-spacer>
-          <student-creator></student-creator>
-        </v-toolbar>
-        <v-card>
-          <v-container fluid grid-list-md>
-            <v-layout row wrap>
-              <student
-                v-for="student in students"
-                v-bind="{ data: student }"
-                :key="student.id">
-              </student>
-            </v-layout>
-          </v-container>
-        </v-card>
-        <!-- </v-flex> -->
-      </v-layout>
-    </v-app>
-  </div>
+  <students-grid></students-grid>
 </div>
 <!-- built files will be auto injected -->
 </body>
