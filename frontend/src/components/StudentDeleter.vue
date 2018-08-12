@@ -29,7 +29,7 @@
     },
     methods: {
       deleteNow () {
-        axios.delete('http://localhost:5000/students/' + this.student_data.id.toString()
+        axios.delete('http://localhost:7777/students/' + this.student_data.id.toString()
         ).catch(error => console.log(error))
         this.dialog = false
         this.$emit('update-list')

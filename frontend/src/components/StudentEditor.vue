@@ -60,9 +60,9 @@
     methods: {
       putNow () {
         if (this.$refs.form.validate()) {
-          axios.put('http://localhost:5000/students/' + this.form_student_data.id.toString(), {
-            data: this.form_student_data
-          }).catch(error => console.log(error))
+          axios.put('http://localhost:7777/students/' + this.form_student_data.id,
+            this.form_student_data
+          ).catch(error => console.log(error))
           this.dialog = false
           this.$emit('update-list')
         }
