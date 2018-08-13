@@ -1,16 +1,13 @@
 <template>
-  <section v-if="errored">
+  <section v-if="!this.$root.auth">
+    <p>Auth first!</p>
+  </section>
+  <section v-else-if="errored">
     <p>Unable to retrieve information right now. Try again later.</p>
   </section>
   <div v-else class="students">
     <v-app id="inspire">
       <v-layout column>
-        <v-toolbar color="indigo" dark>
-          <v-toolbar-side-icon></v-toolbar-side-icon>
-          <v-toolbar-title>Students List</v-toolbar-title>
-          <v-spacer></v-spacer>
-          <student-creator @update-list="updateList"></student-creator>
-        </v-toolbar>
         <v-card>
           <v-container fluid grid-list-md>
             <v-layout row wrap>
@@ -57,7 +54,7 @@
     methods: {
       updateList () {
         axios
-          .get('http://localhost:5000/students/')
+          .get('http://localhost:7777/students/')
           .then(response => (this.students = response.data))
           .catch(error => console.log(error))
       }

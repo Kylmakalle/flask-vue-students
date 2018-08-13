@@ -59,9 +59,9 @@
     methods: {
       postNow () {
         if (this.$refs.form.validate()) {
-          axios.post('http://localhost:5000/students/', {
-            data: this.student_data
-          }).catch(error => console.log(error))
+          axios.post('http://localhost:7777/students/',
+            this.student_data
+          ).catch(error => console.log(error))
           this.dialog = false
           this.$emit('update-list')
         }

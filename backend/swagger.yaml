@@ -1,0 +1,132 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: Students List
+host: 127.0.0.1:7777
+basePath: /
+schemes:
+  - http
+produces:
+  - application/json
+security: []
+paths:
+  /students:
+    get:
+      summary: Get students list
+      operationId: getStudents
+      responses:
+        200:
+          description: Students list
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Student'
+    post:
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Student'
+      summary: Add student to list
+      responses:
+        201:
+          description: Student added to the list
+  /students/{id}:
+    get:
+      summary: Get detailed student info by id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          description: "Student id"
+      responses:
+        200:
+          description: Student info
+          schema:
+            type: object
+            items:
+              $ref: '#/definitions/Student'
+        404:
+          description: No any students with such id
+    put:
+      summary: Update student
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          description: "Student id"
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Student'
+      responses:
+        201:
+          description: Student info updated
+        404:
+          description: No any students with such id
+    delete:
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          description: "Student id"
+      summary: Deletes the student with the specified id.
+      responses:
+        200:
+          description: User was deleted.
+        404:
+          description: No any students with such id
+        500:
+          description: Internal server occured error while deleting student
+
+
+
+definitions:
+  Student:
+    type: object
+    required:
+      - first_name
+      - last_name
+      - group_number
+    properties:
+      id:
+        type: integer
+        x-isnullable: true
+        example: 32
+      first_name:
+        type: string
+        x-isnullable: false
+        example: "Melany"
+      last_name:
+        type: string
+        x-isnullable: false
+        example: "Bootyman"
+      group_number:
+        type: integer
+        x-isnullable: false
+        example: 1000
+      photo:
+        type: string
+        x-isnullable: true
+        example: "http://dummyimage.com/250x250.png/dddddd/000000"
+      facility:
+        type: string
+        x-isnullable: true
+        example: "Art and Perfomance"
+      gender:
+        type: string
+        x-isnullable: true
+        example: "Female"
+      cakes:
+        type: boolean
+        x-isnullable: true
+        example: true
+      python:
+        type: boolean
+        x-isnullabel: true
+        example: true

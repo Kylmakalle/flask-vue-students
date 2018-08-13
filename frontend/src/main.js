@@ -2,8 +2,8 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 
 import Vue from 'vue'
-// import App from './App'
-// import router from './router'
+import App from './App'
+import router from './router'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import Student from './components/Student'
@@ -20,5 +20,15 @@ Vue.component('student-creator', StudentCreator)
 Vue.component('student', Student)
 
 new Vue({
-  el: '#app'
+  el: '#app',
+  router,
+  components: {App},
+  data () {
+    return {
+      auth: false,
+      username: '',
+      password: ''
+    }
+  },
+  template: '<App/>'
 })

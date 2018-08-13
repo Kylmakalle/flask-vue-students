@@ -16,6 +16,9 @@
         </v-container>
       </v-card-media>
       <v-card-actions>
+        <v-btn :to="{ name: 'FullStudent', params: { id:data.id } }" icon>
+          <v-icon>info</v-icon>
+        </v-btn>
         <v-spacer></v-spacer>
         <student-editor v-bind:student_data="data" @update-list="listUpdater"></student-editor>
         <student-deleter v-bind:student_data="data" @update-list="listUpdater"></student-deleter>
